@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>batch_submission</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
+	<style type="text/css">
+		body,p,h1,h2,h3,h4,h5,h6,dl,dd,form,select{ margin: 0;}
+		input,select,textarea{outline: none;}
+		textarea{ margin:0;padding:0; resize:none; overflow:auto;} 
+		ul,ol,li,input{margin: 0; padding: 0; list-style: none;}
+		a{text-decoration: none;}
+		img{border: none;}
+		table{border-collapse: collapse;}
+		#batch_submission{
+			margin-bottom: 160px;
+		}
+		.sub_breadcrumb{
+			height: 94px;
+		}
+		.sub_breadcrumb li{
+			float: left;
+			line-height: 94px;
+		}
+		.sub_breadcrumb li a{
+			color: #333;
+		}
+		.sub_breadcrumb li:nth-of-type(2){
+			padding: 0 10px;
+		}
+		.batch_title{
+			width: 100%;
+			height: 42px;
+			line-height: 42px;
+			font-size: 12px;
+			text-align: center;
+			background-color: #f2dedf;
+			border: 1px solid #ebccd1;
+			color: #b14441;
+			border-radius: 5px;
+		}
+		.group_title{
+			height: 42px;
+			line-height: 42px;
+			font-weight: 700;
+			border-bottom: 1px solid #e5e5e5;
+		}
+		.template_wraper{
+			width: 100%;
+			margin-top: 29px;
+		}
+		.download_wraper{
+			width: 100%;
+			margin-top: 15px;
+			height: 32px;
+		}
+		.download_wraper p{
+			line-height: 32px;
+		}
+		.download_wraper button{
+			margin-left: 19px;
+			font-size: 12px;
+			border-color: #5bc0de;
+			background-color: #ffffff;
+			color: #5bc0de;
+		}
+		.download_wraper button:hover{
+			background-color: #5cc1df;
+			color: #ffffff;
+			border-color: #5cc1df; 
+		}
+		.information_wraper{
+			margin-top: 20px;
+		}
+		.small{
+			width: 100%;
+			height: 42px;
+			line-height: 42px;
+			font-size: 12px;
+			color: #666666;
+		}
+		.photograh_wraper{
+			margin-top: 20px;
+		}
+		#fileuploader,#photouploader{
+			color: #8bc43f;
+			border-color: #8bc43f;
+		}
+		#fileuploader:hover,#photouploader:hover{
+			color: #ffffff;
+			background-color: #8bc43f;
+		}
+		#fileuploader.disabled:hover,#photouploader.disabled:hover{
+			color: #8bc43f;
+			background-color: #ffffff;
+			border-color: #8bc43f;
+		}
+		#all_submit{
+			background-color: #8bc43f;
+			border-color: #8bc43f;
+			color: #ffffff;
+		}
+		/*agreement css*/
+		#agreement p.title{
+			text-align: center;
+			font-weight: 700;
+			font-size: 14px;
+		}
+		#agreement p.sub_title{
+			font-weight: bolder;
+		} 
+		#agreement .agr_tip{
+			font-size: 12px;
+			padding-top: 10px;
+		}
+		#agreement .agr_body{
+			height: 500px; 
+			overflow: auto; 
+			background-color: #fcfcfc;
+			color: #666666;
+		}
+		#agreement .agr_footer .radio{
+			float: left;
+		}
+		#agreement  .radio_wraper{
+			width: 500px;
+			margin: 10px auto; 
+		}
+		#agr_back{
+			background-color: #8bc43f;
+			border-color: #8bc43f;
+		}
+		#agr_submit{
+			background-color: #e9b000;
+			border-color: #e9b000;
+		}
+		.ajax-file-upload-error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="batch_submission" class="container">
+		<ul class="sub_breadcrumb">
+			<li><a href="">Home</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li>New submission</li>
+		</ul>
+		<p class="batch_title">For 10KP sample batch submission, please first download 10KP_sample_batch_submission_template.xls, and then fill the sample information  and upload to the database.</p>
+		<div class="template_wraper">
+			<h4 class="group_title">Template</h4>
+			<div class="download_wraper">
+				<p class="pull-left"><span style="color: #fc0b11;">*</span>10KP_sample_batch_submission_template.xls</p>
+				<button class="btn btn-default pull-left" id="template_download"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;&nbsp;Download</button>
+			</div>
+		</div>
+		<div class="information_wraper">
+			<h4 class="group_title">Information</h4>
+			<p class="small">Fill the sample information and upload to the database</p>
+			<div class="file_upload_wraper" style="margin-left: 5px;">
+				<button class="btn btn-default" id="fileuploader">
+					<i class="fa fa-upload" aria-hidden="true" style="padding-right: 10px;"></i></span>Upload Samples
+				</button>
+			</div>
+			<div class="template_file_upload_container"></div>
+		</div>
+		<div class="photograh_wraper">
+			<h4 class="group_title">Photograh</h4>
+			<p class="small">10KP sample photo file name need to correspond to the sample name, and then compressed and uploaded to the database. Allowed file formats (.zip,.rar)</p>
+			<div class="file_upload_wraper"  style="margin-left: 5px;">
+				<button class="btn btn-default" id="photouploader">
+					<i class="fa fa-upload" aria-hidden="true" style="padding-right: 10px;"></i>Upload Photos&nbsp;&nbsp;
+				</button>
+			</div>
+			<div class="photos_file_upload_container"></div>
+		</div>
+		<div class="row text-center" style="margin-top: 100px;">
+			<form action="" method="POST" id="info_form">
+				<input class="btn btn-primary" id="all_submit" type="submit" value="Submit" />
+			</form>
+		</div>
+	</div>
+	<!-- agreement -->
+	<div class="modal fade bs-example-modal-lg" id="agreement" tabindex="-1" aria-labelledby="agreement" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog modal-lg" role="dialog">
+    		<div class="modal-content">
+      			<div class="modal-header text-center">
+        			<h4 class="modal-title" id="myModalLabel">Submission Agreement</h4>
+        			<p class="text-muted agr_tip">Please read the following submission agreement. You must accept the terms of this agreement before continuing with the submission.</p>
+      			</div>
+      			<div class="modal-body agr_body">
+      				<p class="title">Terms and Conditions</p>
+      				<p class="sub_title">Overview</p>
+      				<br />
+        			<p>Thank you for visiting the database.</p>
+        			<br />
+        			<p>Please read these Terms and Conditions carefully before using this database. Users can obtain services from the database. You should be subject to the following terms and conditions ("Terms and Conditions") , privacy policy ("Privacy Policy ") and the relevant laws and regulations of the People 's Republic of China when you obtain and use the content and services provided on this database. Please click on this link for more details on the database "Privacy Policy ".</p>
+        			<br />
+        			<p>If you do not agree to the Terms and Conditions and / or the Privacy Policy, please do not access or otherwise use any of our services. By your continued use of the database, you acknowledge that you have read and understood the Terms and Conditions and the Privacy Policy and that you agree to be bound by all of its provisions. The database has the right to amend, add to, delete or revise the Terms and Conditions and the Privacy Policy at any time without prior notice. The Terms and Conditions and the Privacy Policy will be published in the database. You can access the relevant content at any time. Your continued use shall constitute your acceptance of all changes and they shall be binding upon you. You are advised to periodically review the Terms and Conditions and the Privacy Policy. Your access to the database and the services will be terminated upon your notice to the database that any change is unacceptable.</p>
+        			<br />
+        			<p class="sub_title">Copyright, Intellectual Property and Ownership</p>
+        			<br />
+        			<p>This database contains resources which incorporate material contributed or licensed by individuals, companies, or organizations that may be protected by China and worldwide copyright laws and treaty provisions. All persons make any representations or warranties that the content does not infringe the rights (including without limitation, the intellectual property rights) of any other person or entity. All rights, ownership and interests of the database including, but not limited to, the appearance and style of the database, data, information, text, code, graphics, images, layout, audio or video material, photo, design, logo, name, service mark, URL, code and the content provided by the third party are owned by us or our licensors. And they are subject to, but are not limited to, copyright, database, patent or other intellectual property and legal protection. Your use of the databases does not grant to you ownership of or any other rights with respect to any content, code, data or other materials that you may access on or through the databases.</p>
+        			<br />
+        			<p>Any unauthorized copying, redistribution, reproduction whether it is all or part of the reproduced, lease, sale, transfer, distribution, execution, display, licensing of the data and information in the database should be prohibited. The database reserves the right to defend intellectual property or proprietary rights in all content of the database, including but not limited to situations where the use of the content is not expressly permitted in the Terms and Conditions.</p>
+        			<br />
+        			<p>Without our prior permission, users can not create a link to our database or use our trademark, logo, or other proprietary graphics to link to the database or to design the material, or create a mirror of the database (including all and partial mirroring). </p>
+        			<br />
+        			<p class="title">Privacy Policy</p>
+        			<br />
+					<p>The database complies with requirements for privacy and security established by China National GeneBank(CNGB). This page outlines our Privacy Policy as they apply to our database as well as third party databases and applications of database (for example, github, wechart, etc.). Any of your personal information which database collects via this database is subject to the Privacy Policies, which is incorporated by reference into the Terms and Conditions.</p>
+					<br />
+					<p class="sub_title">Visit to the database</p>
+					<br />
+					<p>Your visit to the database is private and secure. When you visit the database, we are concerned and committed to protecting your privacy. We do not collect any personally identifiable information (PII) about you, unless you explicitly provide it to us. Database has implemented appropriate technical and organizational measures to ensure a level of security which we deem appropriate, taking into account the data we collect and the way we process it. However, we collect some data about your visit to our website to help us better understand public use of the database and to make it more useful to visitors. This page describes the information that is automatically collected and stored. The database never collects information for commercial marketing or any purpose not related to the database’ functions.</p>
+					<br />
+					<p>If you post or send offensive, inappropriate or objectionable content on or in any place on this database，or otherwise carry out any interference with our services, we may use your personal information to stop such behavior. Where we reasonably believe that you are or may be in breach of any applicable laws we may use your personal information to inform relevant third parties about the content and your behavior. </p>
+					<br />
+					<p class="sub_title">How do we protect your personal information?</p>
+					<br />
+					<p>We are committed to data security. In order to prevent unauthorized access, maintain the accuracy of your personal information and ensure that your personal information is used and disclosed only pursuant to this policy, </p>
+					<br />
+					<p>The database is committed to maintaining and ensuring database physical, electronic, contractual and administrative safeguards. And the database will make sure that the personal information collected in the database with different sensitivities has a different level of security.</p>
+      			</div>
+      			<div class="modal-footer agr_footer">
+      					<div class="radio_wraper clearfix">
+	      					<div class="radio">
+		        				<label>
+		        					<input type="radio" name="is_accepted" checked="checked" value="1" />I accept the agreement 
+		        				</label>
+	        				</div>	
+	        				<div class="radio" style="margin: 10px 0 0 40px;">
+	        					<label>
+	        						<input type="radio" name="is_accepted" value="0" />I do not accept the agreement
+	        					</label>
+	        				</div>
+      					</div>
+        				<hr />
+        				<div class="btn_wraper text-center">
+        					<input class="btn btn-primary" type="button" id="agr_submit" value="Submit" />
+        					<button class="btn btn-primary"  style="margin-left: 20px;" type="button" id="agr_back">&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</button>
+        				</div>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+	<!-- agreement -->
+	<div id="template_file_upload" style="display: none;"></div>
+	<div id="photos_file_upload" style="display: none;"></div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://hayageek.github.io/jQuery-Upload-File/4.0.11/jquery.uploadfile.min.js"></script>
+	<script type="text/javascript">
+		//agreement segment
+		$(function (){
+			var oAgreement=$("#agreement");
+			oAgreement.modal("hide");
+			oAgreement.on('shown.bs.modal', function (e){
+				var oArgSubmit=$("#agr_submit");
+				Judge_status();
+				$("#agr_back").click(function (eve){
+					window.location.href="http://127.0.0.1/10kp";//home page
+					return false;
+				});
+				$('input:radio').click(function (e){
+					Judge_status();
+					e.stopPropagation();
+				});
+
+				function Judge_status(){
+					//condition  whatever, just judge the "data-option" property of element which was checked 
+					if($("input[name='is_accepted']:checked").val() == 1){
+						oArgSubmit.removeAttr("disabled");
+					}
+					else{
+						oArgSubmit.attr("disabled", "disabled");
+					}
+				}
+
+				$("#agr_submit").click(function (){
+					$.ajax({
+						cache: false,
+						url: 'new_submission_agreement.php',
+						type: 'post',
+						data: {"is_accepted": $("input[name='is_accepted']:checked").val()},
+						dataType: "json",
+						success: function (response){
+							if(response.data.state == 1){
+								window.location.reload();
+							}	
+							else{
+								alert(response.data.failed_message);
+								window.history.back();
+							}		
+						},
+						error: function (err){
+							console.log(err);
+						}
+					});
+				});
+			});
+
+		});
+		//file upload
+		$(function (){
+			var template_file_upload_container=$(".template_file_upload_container");
+			var photos_file_upload_container=$(".photos_file_upload_container");
+			var fileuploader=$("#fileuploader");
+			var photouploader=$("#photouploader");
+			var infoForm=$("#info_form");
+			fileuploader.click(function (){
+				$("[id^='ajax-upload-id'][name='template_file']").trigger('click');
+				if (template_file_upload_container.find('*').length==0){
+					$("#template_file_upload").next().appendTo(template_file_upload_container);
+				}
+			});
+			photouploader.click(function (){
+				$("[id^='ajax-upload-id'][name='photos']").trigger('click');
+				if (photos_file_upload_container.find('*').length==0){
+					$("#photos_file_upload").next().appendTo(photos_file_upload_container);
+				}
+			});
+
+			$("#template_file_upload").uploadFile({
+				url:"file_upload.php",
+				fileName:"template_file",
+				multiple:false,
+				showDelete: true,
+				dragDrop: false,
+				returnType: "json",
+				formData: { 'type': 'template'},
+				acceptFiles: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel",
+				onSuccess: function (files,data,xhr,pd){
+					var response=data.data;
+					if(response.is_valid){
+						//restrict single file upload
+						$("[id^='ajax-upload-id'][name='template_file']").attr('disabled', 'disabled');
+						$("#fileuploader").addClass("disabled");
+						infoForm.prepend("<input type='text' name='template_file' value='"+response.file_id+"' style='display: none;'>");
+					}
+					else{
+						$(".ajax-file-upload-container", template_file_upload_container).append('<div id="template_fail_message" class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+response.failed_message+'</div>');
+					}
+				},
+				deleteCallback:function (data, pd){
+					var response=data.data;
+					if(response.is_valid){
+						//delete success file
+						$("[id^='ajax-upload-id'][name='template_file']").removeAttr('disabled');
+						$("#fileuploader").removeClass("disabled");
+						$("input[name='template_file']", infoForm).remove();//隐藏表单数据删除
+						//delete record from database
+						$.get('file_delete.php', {"id": response.file_id, "type": "template"},
+							function (innderdata){
+								if(innderdata.data.state == 1){
+									alert(response.file_name+" has been deleted from database");
+								}
+							}, 'json');
+					}
+					else{
+						//delete failed file
+						//未插入数据库，无需删除。
+						$("#template_fail_message").remove();
+					}
+				}
+			});
+			$("#photos_file_upload").uploadFile({
+				url:"file_upload.php",
+				fileName:"photos",
+				multiple:false,
+				showDelete: true,
+				dragDrop: false,
+				returnType: "json",
+				formData: { 'type': 'photos'},
+				//maxFileSize: 100*1024,
+				acceptFiles: "application/zip ,.rar, application/x-rar-compressed ,application/octet-stream",
+				onSuccess: function (files,data,xhr,pd){
+					var response=data.data;
+					if(response.is_valid){
+						//restrict multiple file upload
+						$("[id^='ajax-upload-id'][name='photos']").attr('disabled', 'disabled');
+						$("#photouploader").addClass("disabled");
+						$("#info_form").prepend("<input type='text' name='photos_file' value='"+response.file_id+"' style='display: none;'>");
+					}
+					else{
+						$(".ajax-file-upload-container", photos_file_upload_container).append('<div id="photos_fail_message" class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+response.failed_message+'</div>');
+					}
+				},
+				deleteCallback: function (data, pd){
+					var response=data.data;
+					if(response.is_valid){
+						$("[id^='ajax-upload-id'][name='photos']").removeAttr('disabled');
+						$("#photouploader").removeClass("disabled");
+						$("input[name='photos_file']", infoForm).remove();
+						$.get('file_delete.php', {"id": response.file_id, "type": "photos"},
+							function (innderdata){
+								if(innderdata.data.state == 1){
+									alert(response.file_name+" has been deleted from database");
+								}
+							}, 'json');
+					}
+					else{
+						$("#photos_fail_message").remove();
+					}
+				},
+				onError:function (){
+					alert(1);
+				}
+			});
+
+			$("#all_submit").click(function (){
+				var inputs=infoForm.find("input[type='text']");
+				if(inputs.length != 2){
+					alert("Make sure that both the template file and the photo archive are uploaded");
+					return false;
+				}
+				
+			});
+		});
+		//download
+		$(function (){
+			$("#template_download").click(function (){
+				var tt = new Date().getTime();
+				var url = 'download.php';
+				console.log(tt);
+				var form=$("<form>");
+				form.attr("style","display:none");
+				form.attr("target","");
+				form.attr("method","get");
+				form.attr("action",url);
+				$("body").append(form);
+				var input1=$("<input>");
+				input1.attr("type","hidden");
+				input1.attr("name","tt");
+				input1.attr("value",tt);
+				form.append(input1);
+				form.submit();
+			});
+		});
+		
+		
+	</script>
+</body>
+</html>

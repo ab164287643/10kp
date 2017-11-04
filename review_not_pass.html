@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Review Not Pass</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<style>
+	body,p,h1,h2,h3,h4,h5,h6,dl,dd,form,select{ margin: 0;}
+	input,select,textarea{outline: none;}
+	textarea{ margin:0;padding:0; resize:none; overflow:auto;} 
+	ul,ol,li,input{margin: 0; padding: 0; list-style: none;}
+	a{text-decoration: none;}
+	img{border: none;}
+	table{border-collapse: collapse;}
+	.sub_breadcrumb{
+		height: 94px;
+	}
+	.sub_breadcrumb li{
+		float: left;
+		line-height: 94px;
+	}
+	.sub_breadcrumb li a{
+		color: #333;
+	}
+	.sub_breadcrumb li:nth-of-type(2),.sub_breadcrumb li:nth-of-type(4){
+		padding: 0 10px;
+	}
+	hr{
+   		margin: 16px 0 0 0;
+   	}
+   	.page_container{
+   		padding-bottom: 97px;
+   	}
+   	.page_container .jumpto-block{
+   		margin-top: 30px;
+   	}
+   	.line{
+   		width: 100%;
+   		padding-bottom: 15px;
+   		border-bottom: 1px dashed #e5e5e5;
+   	}
+   	.line .item_group+.item_group{
+   		float: right;
+   	}
+   	.line .item_group{
+   		float: left;
+   		width: 480px;
+   		height: 100%;
+   	}
+   	.line .item_group .info{
+   		-height: 44px;
+   		line-height: 44px;
+		color: #747474;
+   	}
+   	.line .item_group .info .info_title{
+   		font-weight: 700;
+   	}
+   	.line .item_group .operation{
+   		height: 34px;
+   		line-height: 34px;
+   	}
+   	.line .item_group .operation label{
+   		font-weight: 500;
+		color: #88c63f;
+		padding-right: 13px;
+   	}
+   	.line .item_group .operation>*{
+   		float: left;
+   	}
+   	.line .item_group .operation p{
+   		padding-left: 15px;
+   	}
+   	.line .item_group .operation i{
+   		padding: 10px 5px 0 0;
+   	}
+
+   	.line .item_group.item_group_last{
+   		width: 100%;
+   	}
+   	.line .item_group.item_group_last p.text-muted{
+		line-height: 28px;
+		padding-bottom: 15px;
+   	}
+	.img_wraper{
+		margin: 15px 0;
+	}
+   	.img_wraper .img_btn{
+   		width: 18px;
+   		height: 18px;
+   		line-height: 18px;
+   		padding: 0;
+   		font-size: 12px; 
+   		text-align: center;
+   		background-color: #e6e6e6; 
+   		color: #fff;
+   		border-radius: 50%;
+   		border: none;
+   	}
+   	#submit{
+   		background-color: #8bc43f;
+   		color: white;
+   		border-color: #8bc43f;
+   	}
+   	#confirm .modal-header{ 
+		background-color: #8bc43f;
+		color: white;
+		border-top-left-radius:6px;
+		border-top-right-radius:6px;
+   	}
+   	#confirm .modal-header .close{
+		color: #ffffff;
+		opacity: 0.8;
+   	}
+   	#confirm .modal-body{
+		min-height: 133px; 
+		text-align: center;
+		line-height: 133px;
+		color: #656565;
+		font-size: 16px;
+		font-weight: 700;
+   	}
+   	#confirm .modal-footer .confirm{
+		
+   	}
+   	.modal-footer{
+   		padding: 0;
+   	}
+   	#confirm_btn{
+   		width: 50%;
+   		height: 48px;
+   		line-height: 48px;
+   		color: #656565;
+   		text-align: center;
+   		float: left;
+   		border-right: 1px solid #e5e5e5;
+   		font-weight: 700;
+   		cursor: pointer;
+   	}
+   	#cancel_btn{
+   		float: left;
+   		width: 50%;
+   		height: 48px;
+   		line-height: 48px;
+   		color: #656565;
+   		text-align: center;
+   		font-weight: 700;
+   		cursor: pointer;
+   	}
+   	#confirm_btn:hover, #cancel_btn:hover{
+   		background-color: #8bc43f;
+   		color: #ffffff;
+   	}
+	</style>
+</head>
+<body>
+	<div class="container" id="review">
+		<ul class="sub_breadcrumb">
+			<li><a href="">Home</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li><a href="">Admin</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li>Review</li>
+		</ul>
+		<form action="http://www.baidu.com" method="" name="form_2" class="form-horizontal">
+			<div class="page_container">
+				<div class="jumpto-block" style="margin-top: 0">
+					<h4>Provider</h4>
+		          	<hr />
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">Provider:</span>
+								<span class="info_cont">Shifeng Cheng</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="provider" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+						<div class="item_group clearfix">
+							<div class="info">
+								<span class="info_title">Position:</span>
+								<span class="info_cont">Professor</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text"  name="position" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" style="padding-top: 10px;" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">Nationality:</span>
+								<span class="info_cont">China</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="nationality" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+						<div class="item_group clearfix">
+							<div class="info">
+								<span class="info_title">Affiliation/institution:</span>
+								<span class="info_cont">BGI</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="affiliation" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" style="padding-top: 10px;" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="jumpto-block">
+					<h4>Taxonomy</h4>
+		          	<hr />
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">Clade:</span>
+								<span class="info_cont">Trichoptera</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="clade" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+						<div class="item_group clearfix">
+							<div class="info">
+								<span class="info_title">Family:</span>
+								<span class="info_cont">Limnephilidae</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="family" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" style="padding-top: 10px;" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">Genus:</span>
+								<span class="info_cont">Limnephilus</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="genus" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+						<div class="item_group clearfix">
+							<div class="info">
+								<span class="info_title">Species:</span>
+								<span class="info_cont">Limnephilus</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="species" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" style="padding-top: 10px;" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="jumpto-block">
+					<h4>Sample infomartion</h4>
+		          	<hr />
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">Sample name:</span>
+								<span class="info_cont">Bn_LEAF</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="sample_name" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+						<div class="item_group clearfix">
+							<div class="info">
+								<span class="info_title">Sample type:</span>
+								<span class="info_cont">DNA</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="sample_type" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" style="padding-top: 10px;" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">Tissue type:</span>
+								<span class="info_cont">Leaf</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="tissue_type" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+						<div class="item_group clearfix">
+							<div class="info">
+								<span class="info_title">Extractor:</span>
+								<span class="info_cont">BGI</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="extractor" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" style="padding-top: 10px;" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="jumpto-block">
+					<h4>Sample quality</h4>
+		          	<hr />
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">Concentration (ng/μL):</span>
+								<span class="info_cont">1365.9</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="concentration" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+						<div class="item_group clearfix">
+							<div class="info">
+								<span class="info_title">Volume (μL):</span>
+								<span class="info_cont">48</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="volume" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" style="padding-top: 10px;" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">Total Quantity (μg):</span>
+								<span class="info_cont">65,56</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="total_quantity" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+						<div class="item_group clearfix">
+							<div class="info">
+								<span class="info_title">OD260/280:</span>
+								<span class="info_cont">1.9</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="od260_280" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" style="padding-top: 10px;" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="info">
+								<span class="info_title">OD260/230:</span>
+								<span class="info_cont">1.8</span>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="od260_230" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="jumpto-block">
+					<h4>Photograph</h4>
+					<hr />
+					<div class="line clearfix">
+						<div class="item_group">
+							<div class="img_wraper">
+								<button type="button" id="img_left" class="img_btn">
+									<i class="glyphicon glyphicon-chevron-left"></i>
+								</button>
+								<img src="images/1.jpg" id="sample_photograph" class="-img-responsive" width="136" height="82" alt="sample photograph">
+								<button type="button" id="img_right" class="img_btn">
+									<i class="glyphicon glyphicon-chevron-right"></i>
+								</button>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="photograph" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="jumpto-block">
+					<h4>Citation</h4>
+		          	<hr />
+					<div class="line clearfix">
+						<div class="item_group item_group_last">
+							<div class="info">
+								<p class="text-muted">Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+								<p class="text-muted">Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="citation" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="jumpto-block">
+					<h4>Note</h4>
+		          	<hr />
+					<div class="line clearfix">
+						<div class="item_group item_group_last">
+							<div class="info">
+								<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+							<div class="operation">
+								<label for="">Reason for rejection:</label>
+								<div class="input_wraper">
+									<input type="text" name="note" class="form-control" />
+								</div>
+								<p class="text-muted"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Null means right</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+			<div class="row text-center" >
+				<div class="btn btn-default" id="submit">Submit</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal fade" tabindex="-1" role="dialog" id="confirm">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title text-center">Prompt Message</h4>
+		      </div>
+		      <div class="modal-body">
+		        Do you confirm rejection and send mail?
+		      </div>
+		      <div class="modal-footer">
+		      	<div id="confirm_btn">Confirm</div>
+		      	<div data-dismiss="modal" id="cancel_btn">Cancel</div>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			//Carousel
+			var oLeft=$("#img_left"), oRight=$("#img_right"),
+			oSamplePhotograph=$("#sample_photograph");
+			//模拟数据
+			var images_url=[
+				{
+					'photo_id': 1,
+					'photo_name': 'xx.jpg',
+					'photo_url': 'images/1.jpg'
+				},
+				{
+					'photo_id': 1,
+					'photo_name': 'xx.jpg',
+					'photo_url': 'images/2.jpg'
+				},
+				{
+					'photo_id': 1,
+					'photo_name': 'xx.jpg',
+					'photo_url': 'images/3.jpg'
+				},
+			];
+			var i=0;
+			oLeft.click(function (){
+				i++;
+				i = i<images_url.length ? i : 0; 
+				oSamplePhotograph.attr({
+					"src": images_url[i].photo_url,
+					"alt": images_url[i].photo_name,
+				});
+			});
+			oRight.click(function (){
+				i--;
+				i = i >= 0 ? i : images_url.length-1; 
+				oSamplePhotograph.attr({
+					"src": images_url[i].photo_url,
+					"alt": images_url[i].photo_name,
+				});
+			});
+
+			//confirm
+			$('#submit').click(function (e){
+				var confirm=$('#confirm');
+				var confirm_btn=$("#confirm_btn");
+				confirm.modal('show');
+				confirm_btn.off();
+				confirm_btn.click(function (e){
+					document.form_2.submit();
+					confirm.modal('hide');
+					e.stopPropagation();
+				});
+				e.preventDefault();
+			});
+		});
+	</script>
+</body>
+</html>

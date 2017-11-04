@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Review Not Pass</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<style>
+	body,p,h1,h2,h3,h4,h5,h6,dl,dd,form,select{ margin: 0;}
+	input,select,textarea{outline: none;}
+	textarea{ margin:0;padding:0; resize:none; overflow:auto;} 
+	ul,ol,li,input{margin: 0; padding: 0; list-style: none;}
+	a{text-decoration: none;}
+	img{border: none;}
+	table{border-collapse: collapse;}
+	.sub_breadcrumb{
+		height: 94px;
+	}
+	.sub_breadcrumb li{
+		float: left;
+		line-height: 94px;
+	}
+	.sub_breadcrumb li a{
+		color: #333;
+	}
+	.sub_breadcrumb li:nth-of-type(2),.sub_breadcrumb li:nth-of-type(4){
+		padding: 0 10px;
+	}
+	hr{
+   		margin: 16px 0;
+   	}
+   	.img_wraper .btn {
+    	font-size: 18px;
+    	background-color: rgba(0,0,0,0.7);
+    	color: #fff;
+	}
+	</style>
+</head>
+<body>
+<div class="container" id="review">
+		<ul class="sub_breadcrumb">
+			<li><a href="">Home</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li><a href="">Admin</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li>Review</li>
+		</ul>
+		<form action="" method="">
+			<div class="page_container">
+				<div class="jumpto-block">
+					<h4>Provider</h4>
+		          	<hr />
+					<table class="table table-striped">
+						<tr>
+							<td>Provider</td>
+							<td>Shifeng Cheng</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="provider" value=""></td>
+						</tr>
+						<tr>
+							<td>Position</td>
+							<td>Professor</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="position" value=""></td>
+						</tr>
+						<tr>
+							<td>Nationality</td>
+							<td>China</td>
+							<td class="col-xs-5"><input class="form-control" type="text"  name="nationality" value=""></td>
+						</tr>
+						<tr>
+							<td>Affiliation/institution</td>
+							<td>BGI</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="affiliation" value=""></td>
+						</tr>
+					</table>
+				</div>
+				<div class="jumpto-block">
+					<h4>Taxonomy</h4>
+		          	<hr />
+		          	<table class="table table-striped">
+						<tr>
+							<td>Clade</td>
+							<td>Trichoptera</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="clade" value=""></td>
+						</tr>
+						<tr>
+							<td>Order</td>
+							<td>Limnephilidae</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="order" value=""></td>
+						</tr>
+						<tr>
+							<td>Family</td>
+							<td>Limnephilus</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="family" value=""></td>
+						</tr>
+						<tr>
+							<td>Genus</td>
+							<td>Limnephilus</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="genus" value=""></td>
+						</tr>
+						<tr>
+							<td>Species</td>
+							<td>Oryza sativa</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="species" value=""></td>
+						</tr>
+					</table>
+				</div>
+				<div class="jumpto-block">
+					<h4>Sample infomartion</h4>
+		          	<hr />
+		          	<table class="table table-striped">
+						<tr>
+							<td>Sample name</td>
+							<td>Bn_LEAF</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="sample_name" value=""></td>
+						</tr>
+						<tr>
+							<td>Sample type</td>
+							<td>DNA</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="sample_type" value=""></td>
+						</tr>
+						<tr>
+							<td>Tissue type</td>
+							<td>Leaf</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="tissue_type" value=""></td>
+						</tr>
+						<tr>
+							<td>Extractor</td>
+							<td>BGI</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="extractor" value=""></td>
+						</tr>
+					</table>
+				</div>
+				<div class="jumpto-block">
+					<h4>Sample quality</h4>
+		          	<hr />
+		          	<table class="table table-striped">
+						<tr>
+							<td>Concentration (ng/μL)</td>
+							<td>1365.9</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="concentration" value=""></td>
+						</tr>
+						<tr>
+							<td>Volume (μL)</td>
+							<td>48</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="volume" value=""></td>
+						</tr>
+						<tr>
+							<td>Total Quantity (μg)</td>
+							<td>65,56</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="total_quantity" value=""></td>
+						</tr>
+						<tr>
+							<td>OD260/280</td>
+							<td>OD260/280</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="od260_280" value=""></td>
+						</tr>
+						<tr>
+							<td>OD260/230</td>
+							<td>2.01</td>
+							<td class="col-xs-5"><input class="form-control" type="text" name="od260_230" value=""></td>
+						</tr>
+					</table>
+				</div>
+				<div class="jumpto-block">
+					<h4>Photograph</h4>
+					<hr />
+					<table class="table table-striped">
+						<tr>
+							<div class="img_wraper">
+								<button type="button" id="img_left" class="btn btn-default btn-xs">
+									<i class="glyphicon glyphicon-chevron-left"></i>
+								</button>
+								<img src="images/1.jpg" id="sample_photograph" class="img-rounded" width="100" height="100" alt="sample photograph">
+								<button type="button" id="img_right" class="btn btn-default btn-xs">
+									<i class="glyphicon glyphicon-chevron-right"></i>
+								</button>
+							</div>
+						</tr>
+					</table>
+					<tr>
+						<input class="form-control" type="text" name="photograph" />
+					</tr>
+				</div>
+				<div class="jumpto-block">
+					<h4>Citation</h4>
+		          	<hr />
+					<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+					<br />
+					<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+					<br />
+					<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p> 
+					<br />
+					<div>
+						<input type="text" name="citation" class="form-control" />
+					</div>
+				</div>
+				<div class="jumpto-block">
+					<h4>Note</h4>
+					<hr />
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<br />
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<br />
+					<br />
+					<div>
+						<input type="text" name="note" class="form-control" />
+					</div>
+				</div>	
+			</div>			
+			<div class="row text-center" >
+				<button class="btn btn-success">Submit</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		//Carousel
+		var oLeft=$("#img_left"), oRight=$("#img_right"),
+		oSamplePhotograph=$("#sample_photograph");
+		//模拟数据
+		var images_url=[
+			{
+				'photo_id': 1,
+				'photo_name': 'xx.jpg',
+				'photo_url': 'images/1.jpg'
+			},
+			{
+				'photo_id': 1,
+				'photo_name': 'xx.jpg',
+				'photo_url': 'images/2.jpg'
+			},
+			{
+				'photo_id': 1,
+				'photo_name': 'xx.jpg',
+				'photo_url': 'images/3.jpg'
+			},
+		];
+		var i=0;
+		oLeft.click(function (){
+			i++;
+			i = i<images_url.length ? i : 0; 
+			oSamplePhotograph.attr({
+				"src": images_url[i].photo_url,
+				"alt": images_url[i].photo_name,
+			});
+		});
+		oRight.click(function (){
+			i--;
+			i = i >= 0 ? i : images_url.length-1; 
+			oSamplePhotograph.attr({
+				"src": images_url[i].photo_url,
+				"alt": images_url[i].photo_name,
+			});
+		});
+	</script>
+</body>
+</html>

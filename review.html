@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>review</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<style>
+	body,p,h1,h2,h3,h4,h5,h6,dl,dd,form,select{ margin: 0;}
+	input,select,textarea{outline: none;}
+	textarea{ margin:0;padding:0; resize:none; overflow:auto;} 
+	ul,ol,li,input{margin: 0; padding: 0; list-style: none;}
+	a{text-decoration: none;}
+	img{border: none;}
+	table{border-collapse: collapse;}
+	.sub_breadcrumb{
+		height: 94px;
+	}
+	.sub_breadcrumb li{
+		float: left;
+		line-height: 94px;
+	}
+	.sub_breadcrumb li a{
+		color: #333;
+	}
+	.sub_breadcrumb li:nth-of-type(2),.sub_breadcrumb li:nth-of-type(4){
+		padding: 0 10px;
+	}
+	.dl-horizontal dt{
+		width: auto;
+	}
+	.dl-horizontal dd{
+		float: left;
+		margin-left: 2px;
+	}
+	.img_wraper{
+   		position: absolute;
+   		right: 0;
+   		top: 50px;
+   	}
+   	.img_wraper .img_btn{
+   		width: 18px;
+   		height: 18px;
+   		line-height: 18px;
+   		padding: 0;
+   		font-size: 12px; 
+   		text-align: center;
+   		background-color: #e6e6e6; 
+   		color: #fff;
+   		border-radius: 50%;
+   		border: none;
+   	}
+	hr{
+   		margin: 16px 0;
+   	}
+   	.page_container{
+   		padding-bottom: 50px;
+   	}
+	.page_container .dl-horizontal,.page_container p{
+   		color: #7f7f7f;
+   	}
+   	.page_container .dl-horizontal dt{
+   		text-align: left;
+   	}
+	.jumpto-block{
+   		margin-top: 30px;
+   	}
+   	#pass{
+   		background-color: #8bc43f;
+   		border-color: #8bc43f;
+   		color: white;
+   	}
+   	#not_pass{
+   		margin-left: 100px;
+   		background-color: #eab100;
+   		border-color: #eab100;
+   	}
+   	#confirm .modal-header{ 
+		background-color: #8bc43f;
+		color: white;
+		border-top-left-radius:6px;
+		border-top-right-radius:6px;
+   	}
+   	#confirm .modal-header .close{
+		color: #ffffff;
+		opacity: 0.8;
+   	}
+   	#confirm .modal-body{
+		min-height: 133px; 
+		text-align: center;
+		line-height: 133px;
+		color: #656565;
+		font-size: 16px;
+		font-weight: 700;
+   	}
+   	#confirm .modal-footer .confirm{
+		
+   	}
+   	.modal-footer{
+   		padding: 0;
+   	}
+   	#confirm_btn{
+   		width: 50%;
+   		height: 48px;
+   		line-height: 48px;
+   		color: #656565;
+   		text-align: center;
+   		float: left;
+   		border-right: 1px solid #e5e5e5;
+   		font-weight: 700;
+   		cursor: pointer;
+   	}
+   	#cancel_btn{
+   		float: left;
+   		width: 50%;
+   		height: 48px;
+   		line-height: 48px;
+   		color: #656565;
+   		text-align: center;
+   		font-weight: 700;
+   		cursor: pointer;
+   	}
+   	#confirm_btn:hover, #cancel_btn:hover{
+   		background-color: #8bc43f;
+   		color: #ffffff;
+   	}
+	</style>
+</head>
+<body>
+	<div class="container" id="review">
+		<ul class="sub_breadcrumb">
+			<li><a href="">Home</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li><a href="">Admin</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li>Review</li>
+		</ul>
+			<div class="page_container">
+				<div class="jumpto-block" style="position: relative; margin-top: 0;">
+					<h4>Provider</h4>
+		          		<hr />
+		          		<dl class="dl-horizontal clearfix">
+	  						<dt>Provider:</dt>
+	 	 					<dd>Shifeng Cheng</dd>
+	 	 					<dt>Position:</dt>
+	 	 					<dd>Professor</dd>
+	 	 					<dt>Nationality:</dt>
+	 	 					<dd>China</dd>
+	 	 					<dt>Affiliation/institution:</dt>
+	 	 					<dd>BGI</dd>
+						</dl>
+					<div class="img_wraper">
+						<button type="button" id="img_left" class="img_btn">
+							<i class="glyphicon glyphicon-chevron-left"></i>
+						</button>
+						<img src="images/1.jpg" id="sample_photograph" class="-img-responsive" width="136" height="82" alt="sample photograph">
+						<button type="button" id="img_right" class="img_btn">
+							<i class="glyphicon glyphicon-chevron-right"></i>
+						</button>
+					</div> 
+				</div>
+				<div class="jumpto-block">
+					<h4>Taxonomy</h4>
+		          		<hr />
+		          		<dl class="dl-horizontal clearfix">
+	  						<dt>Clade:</dt>
+	 	 					<dd>Trichoptera</dd>
+	 	 					<dt>Order:</dt>
+	 	 					<dd>Limnephilidae</dd>
+	 	 					<dt>Family:</dt>
+	 	 					<dd>Limnephilus</dd>
+	 	 					<dt>Genus:</dt>
+	 	 					<dd>Limnephilus obsoletus</dd>
+	 	 					<dt>Species:</dt>
+	 	 					<dd>Oryza sativa</dd>
+						</dl>
+				</div>
+				<div class="jumpto-block">
+					<h4>Sample infomartion</h4>
+		          	<hr />
+		          	<dl class="dl-horizontal clearfix">
+	  					<dt>Sample name:</dt>
+	 	 				<dd>Bn_LEAF</dd>
+	 	 				<dt>Sample type:</dt>
+	 	 				<dd>DNA</dd>
+	 	 				<dt>Tissue type:</dt>
+	 	 				<dd>Leaf</dd>
+	 	 				<dt>Extractor:</dt>
+	 	 				<dd>BGI</dd>
+					</dl>
+				</div>
+				<div class="jumpto-block">
+					<h4>Sample quality</h4>
+		          	<hr />
+		          	<dl class="dl-horizontal clearfix">
+	  					<dt>Concentration (ng/μL):</dt>
+	 	 				<dd>1365.9</dd>
+	 	 				<dt>Volume (μL):</dt>
+	 	 				<dd>48</dd>
+	 	 				<dt>Total Quantity (μg):</dt>
+	 	 				<dd>65,56</dd>
+	 	 				<dt>OD260/280:</dt>
+	 	 				<dd>1.9</dd>
+	 	 				<dt>OD260/230:</dt>
+	 	 				<dd>2.01</dd>
+					</dl>
+				</div>
+				<div class="jumpto-block">
+					<h4>Citation</h4>
+		          	<hr />
+					<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+					<br />
+					<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+					<br />
+					<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p> 
+				</div>
+				<br />
+				<div class="jumpto-block">
+					<h4>Note</h4>
+					<hr />
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<br />
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<br />
+				</div>
+			</div>
+			<div class="row text-center">
+				<button class="btn btn-default" id="pass">&nbsp;&nbsp;Pass&nbsp;&nbsp;&nbsp;</button>
+				<button class="btn btn-default" id="not_pass"><a href="" style="color: white; text-decoration: none;">Not Pass</a></button>
+			</div>
+	</div>
+	<div class="modal fade" tabindex="-1" role="dialog" id="confirm">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title text-center">Prompt Message</h4>
+		      </div>
+		      <div class="modal-body">
+		        Is Review Pass?
+		      </div>
+		      <div class="modal-footer">
+		      	<div id="confirm_btn">Confirm</div>
+		      	<div data-dismiss="modal" id="cancel_btn">Cancel</div>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div id="sample_id" style="display :none;">3</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		//pass 
+		$(function (){
+			var sample_id=$.trim($("#sample_id").text());
+			$("#pass").click(function (e){
+				var confirm=$('#confirm');
+				var confirm_btn=$("#confirm_btn");
+				confirm.modal('show');
+				confirm_btn.off();
+				confirm_btn.click(function (e){
+					$.ajax({
+						url: 'review_pass.php',
+						type: 'post',
+						data: {'id': sample_id, 'op': 'insert'},//id  
+						dataType:"json",
+						success: function (response){
+							var data=response.data;
+							if(data.status == "1"){
+								window.location.href="http://127.0.0.1/10kp";
+							}
+							else{
+								alert(data.failed_message);
+							};
+						},
+						error: function (err){
+								console.log(err);
+						}
+					});
+					confirm.modal('hide');
+					e.stopPropagation();
+				});
+				
+				return false;
+			});
+		
+
+			//Carousel
+			var oLeft=$("#img_left"), oRight=$("#img_right"),
+			oSamplePhotograph=$("#sample_photograph");
+			//模拟数据
+			var images_url=[
+				{
+					'photo_id': 1,
+					'photo_name': 'xx.jpg',
+					'photo_url': 'images/1.jpg'
+				},
+				{
+					'photo_id': 1,
+					'photo_name': 'xx.jpg',
+					'photo_url': 'images/2.jpg'
+				},
+				{
+					'photo_id': 1,
+					'photo_name': 'xx.jpg',
+					'photo_url': 'images/3.jpg'
+				},
+			];
+			var i=0;
+			oLeft.click(function (){
+				i++;
+				i = i<images_url.length ? i : 0; 
+				oSamplePhotograph.attr({
+					"src": images_url[i].photo_url,
+					"alt": images_url[i].photo_name,
+				});
+			});
+			oRight.click(function (){
+				i--;
+				i = i >= 0 ? i : images_url.length-1; 
+				oSamplePhotograph.attr({
+					"src": images_url[i].photo_url,
+					"alt": images_url[i].photo_name,
+				});
+			});
+		});
+	</script>
+</body>
+</html>

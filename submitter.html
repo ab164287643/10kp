@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>submitter</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/all.css" />
+	<style type="text/css">
+	.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+	.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+	.autocomplete-selected { background: #F0F0F0; }
+	.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+	.autocomplete-group { padding: 2px 5px; }
+	.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+</style>
+
+</head>
+<body style="height: 2000px;">
+	<div id="sub_content" class="container">
+		<ul class="sub_breadcrumb">
+			<li><a href="">Home</a></li>
+			<li>New submission</li>
+		</ul>
+		<hr class="break_1" />
+		<h2 class="sub_title">Please fill out the following fields to submit. * mandatory field.</h2>
+		<form id="sample_submit_form" action="" method="GET">
+			<div class="sub_submitter">
+				<h3 class="sub_submitter_title">Submitter</h3>
+				<hr class="break_1" />
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-2">
+							<label title=""><span class="sub_required_tag">*</span>First name</label>
+							<input class="form-control" type="text" name="first_name" required="true" />
+						</div>
+						<div class="form-group col-xs-2 form_common_css">
+							<label title="">Middle name</label>
+							<input class="form-control" type="text" name="middle_name" />
+						</div>
+						<div class="form-group col-xs-2 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Last name</label>
+							<input class="form-control" type="text" name="last_name" required="true" />
+						</div>
+					
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-2">
+							<label title=""><span class="sub_required_tag">*</span>Email</label>
+							<input class="form-control" type="email" name="email" required="true" />
+						</div>
+						<div class="form-group col-xs-2 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Institution</label>
+							<input class="form-control" type="text" name="institution" required="true" />
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="sub_taxonomy">
+				<h3 class="sub_submitter_title">Taxonomy</h3>
+				<hr class="break_1" />
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-2">
+							<label title=""><span class="sub_required_tag">*</span>Clade</label>
+							<input class="form-control" id="clade" type="text" name="clade" required="true" />
+						</div>
+						<div class="form-group col-xs-2 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Family</label>
+							<input class="form-control" type="text" name="family" required="true" />
+						</div>
+						<div class="form-group col-xs-2 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Genus</label>
+							<input class="form-control" type="text" name="genus" required="true" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-2">
+							<label title=""><span class="sub_required_tag">*</span>Species</label>
+							<input class="form-control" type="text" name="species" required="true" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sub_sample">
+				<h3 class="sub_submitter_title">Sample information</h3>
+				<hr class="break_1" />
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-2">
+							<label title=""><span class="sub_required_tag">*</span>Sample name</label>
+							<input class="form-control" type="text" name="sample_name" required="true" />
+						</div>
+						<div class="form-group col-xs-2">
+							<label title=""><span class="sub_required_tag">*</span>Sample Type</label>
+							<select name="sample_type" class="form-control">
+								<option value="DNA">DNA</option>
+								<option value="DNA">RNA</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-2">
+							<label title=""><span class="sub_required_tag">*</span>Tissue Type</label>
+							<select name="tissue_type" class="form-control">
+								<option value="leaf">Leaf</option>
+								<option value="root">Root</option>
+								<option value="stem">Stem</option>
+								<option value="axillary_bud">Axillary bud</option>
+								<option value="flower_buds">Flower buds</option>
+								<option value="stamen">Stamen</option>
+								<option value="pistil">Pistil</option>
+								<option value="petal">Petal</option>
+								<option value="sepal">Sepal</option>
+								<option value="others">Others</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>Person name extracted the sample</label>
+							<input class="form-control" type="text" name="extractor" required="true" />
+						</div>
+						<div class="form-group col-xs-2">
+							<label title="">Photograph</label>
+							<input type="file" name="photograph" value="please select a photo"  />
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sub_sample_quality">
+				<h3 class="sub_submitter_title">Sample quality</h3>
+				<hr class="break_1" />
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-2">
+							<label title="">Concentration (ng/μL)</label>
+							<input class="form-control" type="text" name="concentration" />
+						</div>
+						<div class="form-group col-xs-2">
+							<label title="">Volume (μL)</label>
+							<input class="form-control" type="text" name="volume" />
+						</div>
+						<div class="form-group col-xs-2">
+							<label title="">Total Quantity (μg)</label>
+							<input class="form-control" type="text" name="total_quantity" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-2">
+							<label title="">OD260/280</label>
+							<i  class="fa fa-question-circle-o fa-lg" data-toggle="popover" data-content="The ratio of absorbance at 260 nm and 280 nm is used to assess the purity of DNA and RNA. A ratio of ~1.8 is generally accepted as “pure” for DNA; a ratio of ~2.0 is generally accepted as “pure” for RNA. If the ratio is appreciably lower in either case, it may indicate the presence of protein, phenol or other contaminants that absorb strongly at or near 280 nm." title="Tip" data-placement="right" data-trigger="hover" data-container="body"></i>
+							<input class="form-control" type="text" name="od260_280" />
+						</div>
+						<div class="form-group col-xs-2">
+							<label title="" data-toggle="tooltip" title="xx">OD260/230</label>
+							<i  class="fa fa-question-circle-o fa-lg" data-toggle="popover" data-content="This ratio is used as a secondary measure of nucleic acid purity. The 260/230 values for “pure” nucleic acid are often higher than the respective 260/280 values. Expected 260/230 values are commonly in the range of 2.0-2.2. If the ratio is appreciably lower than expected, it may indicate the presence of contaminants which absorb at 230 nm." title="Tip" data-placement="right" data-trigger="hover" data-container="body"></i>
+							<input class="form-control" type="text" name="od260_230" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sub_submit">
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-8">
+							<label title="" data-toggle="tooltip" title="xx">Citation</label>
+							<textarea name="citation" class="form-control" cols="30" rows="5"></textarea>
+						</div>
+						<div class="form-group col-xs-8">
+							<label title="" data-toggle="tooltip" title="xx">Note</label>
+							<textarea name="citation" class="form-control" cols="30" rows="5"></textarea>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-xs-8 text-center">
+							<button class="btn btn-primary btn-lg">Save</button>
+							<input type="submit" class="btn btn-primary btn-lg" style="margin-left: 50px;" value="Submit" />
+						</div>
+					</div>				
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.2/jquery.autocomplete.min.js"></script>
+	<script type="text/javascript">
+		$("[data-toggle='popover']").popover();
+
+		//validate
+		$.validator.setDefaults({
+    		submitHandler: function() {
+      		alert("提交事件!");
+    		}
+		});
+		$("#sample_submit_form").validate();
+
+		//auto complete
+		var cladeTags = [
+     		"family",
+    		"ActionScript",
+      		"AppleScript",
+      		"Asp",
+      		"BASIC", 
+    	];
+    	var familyTags=[
+    		"family",
+    		"ActionScript",
+      		"AppleScript",
+      		"Asp",
+      		"BASIC",
+    	];
+    	var genusTags=[
+    		"genus",
+    		"123",
+    		"ActionScript",
+      		"AppleScript",
+      		"Asp",
+      		"BASIC",
+    	];
+    	var speiesTags=[
+    		"species",
+    		"123",
+    		"ActionScript",
+      		"AppleScript",
+      		"Asp",
+      		"BASIC",
+    	];
+    	var countries = [
+   			{ value: 'Andorra', data: 'AD' },
+  			 // ...
+   			{ value: 'Zimbabwe', data: 'ZZ' }
+		];
+    	$( "#clade" ).autocomplete({
+    		lookup: countries,
+    		onSelect: function (suggestion) {
+       			 alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+    		}
+    	});
+	</script>
+</body>
+</html>

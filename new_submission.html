@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new_submission</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link  rel="stylesheet" href="css/uploadfile.css" />
+	<style type="text/css">
+	@charset "utf-8";
+	body,p,h1,h2,h3,h4,h5,h6,dl,dd,form,select{ margin: 0;}
+	input,select,textarea{outline: none;}
+	textarea{ margin:0;padding:0; resize:none; overflow:auto;} 
+	ul,ol,li,input{margin: 0; padding: 0; list-style: none;}
+	a{text-decoration: none;}
+	img{border: none;}
+	table{border-collapse: collapse;}
+
+	/*clear float*/
+	.clearfix:after{content:"";display:block;clear:both;}
+	.clearfix{zoom:1;}
+
+	/*submitter page*/
+	#sub_content{
+		margin-bottom: 160px;
+	}
+	.sub_breadcrumb{
+		height: 94px;
+	}
+	.sub_breadcrumb li{
+		float: left;
+		line-height: 94px;
+	}
+	.sub_breadcrumb li a{
+		color: #333;
+	}
+	.sub_breadcrumb li:nth-of-type(2){
+		padding: 0 10px;
+	}
+	.break_1{
+		margin: 0;
+	}
+	#sub_content .infor_group{
+		margin-top: 10px;
+	}
+	#sub_content .sub_submitter_title{
+		height: 30px;
+	}
+	#sub_content .form-group{
+		margin-top: 10px;
+	}
+	#sub_content .form-group label{
+		font-size: 12px;
+	}
+	.sub_required_tag{
+		color: red;
+	}
+	#to_save{
+		background-color: #8bc43f; 
+		border-color: #8bc43f;
+	}
+	#to_submit{
+		background-color: #eab102; 
+		border-color: #eab102;
+	}
+	#photo_upload_btn{
+		border-color: #8cc43f;
+		color: #8cc43f;
+	}	
+	#photo_upload_btn:hover{
+		background-color: #8bc43f;
+		color: #ffffff;
+	}
+	.autocomplete_wrap{
+		width: 200px;
+		max-height: 400px;
+		padding: 5px;
+		border: 1px solid #ccc;
+		position: absolute;
+		overflow: auto;
+		left: 700px;
+		top: 0;
+		background-color: white;
+		z-index: 999;
+	}
+	.autocomplete_wrap .autocomplete_input{
+		box-sizing: border-box;
+		width: 100%;
+		margin-top: 5px;
+    	border: 1px solid #ccc;
+    	outline: none;
+    	padding: 4px;
+	}
+	.autocomplete_wrap .autocomplete_item{		
+		width: 100%;
+    	cursor: pointer;
+    	height: 30px;
+    	line-height: 30px;
+    	box-sizing: border-box;
+    	transition: all 1s ease 0s;
+    	text-align: center;
+	}
+	.autocomplete_wrap .autocomplete_item:nth-of-type(1){
+		margin-top: 5px;
+	}
+	.autocomplete_wrap .autocomplete_item.hover{
+		background: #28a4c9;
+	}
+	/*file upload item*/
+	.ajax-file-upload-statusbar{
+		float: left;
+	}
+	.ajax-file-upload-container {
+   		margin: -30px 0px 20px -4px;
+	}
+	.ajax-file-upload-error{
+		color: red;
+	}
+	.custom_statusbar{
+		border-width: 0;
+		width: 200px;
+		text-align: center;
+	}
+	.custom_preview{
+		border: 1px solid #e5e5e5;
+	}
+	.custom_filename{
+		width: 200px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		color: #747474;
+		overflow: hidden;
+	}
+	.custom_progressdiv{
+		display: none;
+	}
+	.custom_del{
+		width: 200px;
+		height: 40px;
+		background: none;
+		-webkit-box-shadow: inset 0 39px 0 -24px #ffffff;
+		box-shadow: inset 0 39px 0 -24px #ffffff;
+		text-align: center;
+		color: #8ac642;
+		text-shadow: 0 1px 0 #ffffff;
+	}
+	
+	
+	/*agreement css*/
+	#agreement p.title{
+		text-align: center;
+		font-weight: 700;
+		font-size: 14px;
+	}
+	#agreement p.sub_title{
+		font-weight: bolder;
+	} 
+	#agreement .agr_tip{
+		font-size: 12px;
+		padding-top: 10px;
+	}
+	#agreement .agr_body{
+		height: 500px; 
+		overflow: auto; 
+		background-color: #fcfcfc;
+		color: #666666;
+	}
+	#agreement .agr_footer .radio{
+		float: left;
+	}
+	#agreement  .radio_wraper{
+		width: 500px;
+		margin: 10px auto; 
+	}
+	#agr_back{
+		background-color: #8bc43f;
+		border-color: #8bc43f;
+	}
+	#agr_submit{
+		background-color: #e9b000;
+		border-color: #e9b000;
+	}
+</style>
+
+</head>
+<body>
+	<div id="sub_content" class="container clearfix">
+		<ul class="sub_breadcrumb">
+			<li><a href="">Home</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li>New submission</li>
+		</ul>
+		<form id="sample_submit_form" action="" method="" name="sample_submit_form">
+			<div class="sub_submitter">
+				<h4 class="sub_submitter_title">Provider</h4>
+				<hr class="break_1" />
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>First name</label>
+							<input class="form-control" type="text" name="first_name" required="true" />
+						</div>
+						<div class="form-group col-xs-3 form_common_css">
+							<label title="">Middle name</label>
+							<input class="form-control" type="text" name="middle_name" />
+						</div>
+						<div class="form-group col-xs-3 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Last name</label>
+							<input class="form-control" type="text" name="last_name" required="true" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>Email</label>
+							<input class="form-control" type="email" name="email" required="true" />
+						</div>
+						<div class="form-group col-xs-3 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Position</label>
+							<input class="form-control" type="text" name="position" required="true" />
+						</div>
+						<div class="form-group col-xs-3 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Nationality</label>
+							<input class="form-control" type="text" name="nationality" required="true" />
+						</div>
+						<div class="form-group col-xs-3 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Affiliation</label>
+							<input class="form-control" type="text" name="affiliation" required="true" />
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="sub_taxonomy infor_group">
+				<h4 class="sub_submitter_title">Taxonomy</h4>
+				<hr class="break_1" />
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>Species</label>
+							<select class="form-control taxonomy_query" required="true" name="species" id=""></select>
+						</div>
+						<div class="form-group col-xs-3 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Genus</label>
+							<select class="form-control taxonomy_query" required="true" name="genus" id=""></select>
+						</div>
+						<div class="form-group col-xs-3 form_common_css">
+							<label title=""><span class="sub_required_tag">*</span>Family</label>
+							<select class="form-control taxonomy_query" required="true" name="family" id=""></select>
+						</div>		
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>Clade</label>
+							<select class="form-control taxonomy_query" required="true" name="clade" data-url="data.txt" id=""></select>
+						</div>										
+					</div>
+				</div>
+			</div>
+			<div class="sub_sample infor_group">
+				<h4 class="sub_submitter_title">Sample information</h4>
+				<hr class="break_1" />
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>Sample name</label>
+							<input class="form-control" type="text" name="sample_name" required="true" />
+						</div>
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>Sample Type</label>
+							<select name="sample_type" class="form-control">
+								<option value="DNA">DNA</option>
+								<option value="DNA">RNA</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>Tissue Type</label>
+							<select name="tissue_type" class="form-control">
+								<option value="leaf">Leaf</option>
+								<option value="root">Root</option>
+								<option value="stem">Stem</option>
+								<option value="axillary_bud">Axillary bud</option>
+								<option value="flower_buds">Flower buds</option>
+								<option value="stamen">Stamen</option>
+								<option value="pistil">Pistil</option>
+								<option value="petal">Petal</option>
+								<option value="sepal">Sepal</option>
+								<option value="others">Others</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-3">
+							<label title=""><span class="sub_required_tag">*</span>Extractor</label>
+							<input class="form-control" type="text" name="extractor" required="true" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-2">
+							<label title="">Photograph</label>
+							<button id="photo_upload_btn"  class="btn btn-default"><i class="fa fa-upload" aria-hidden="true" style="padding-right: 8px;"></i>Upload photos</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group" id="photo_container" style="margin-top: -15px;"></div>
+						<input type="text" name="sample_photo" id="sample_photo" style="display: none;" />
+					</div>
+				</div>
+			</div>
+			<div class="sub_sample_quality infor_group">
+				<h4 class="sub_submitter_title">Sample quality</h4>
+				<hr class="break_1" />
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-3">
+							<label title="">Concentration (ng/μL)</label>
+							<input class="form-control" type="text" number="true" name="concentration" />
+						</div>
+						<div class="form-group col-xs-3">
+							<label title="">Volume (μL)</label>
+							<input class="form-control" type="text" number="true" name="volume" />
+						</div>
+						<div class="form-group col-xs-3">
+							<label title="">Total Quantity (μg)</label>
+							<input class="form-control" type="text" number="true" name="total_quantity" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-3">
+							<label title="">OD260/280</label>
+							<i  class="fa fa-question-circle-o" data-toggle="popover" data-content="The ratio of absorbance at 260 nm and 280 nm is used to assess the purity of DNA and RNA. A ratio of ~1.8 is generally accepted as “pure” for DNA; a ratio of ~2.0 is generally accepted as “pure” for RNA. If the ratio is appreciably lower in either case, it may indicate the presence of protein, phenol or other contaminants that absorb strongly at or near 280 nm." title="Tip" data-placement="right" data-trigger="hover" data-container="body"></i>
+							<input class="form-control" type="text" number="true" name="od260_280" />
+						</div>
+						<div class="form-group col-xs-3">
+							<label title="" data-toggle="tooltip" title="xx">OD260/230</label>
+							<i  class="fa fa-question-circle-o" data-toggle="popover" data-content="This ratio is used as a secondary measure of nucleic acid purity. The 260/230 values for “pure” nucleic acid are often higher than the respective 260/280 values. Expected 260/230 values are commonly in the range of 2.0-2.2. If the ratio is appreciably lower than expected, it may indicate the presence of contaminants which absorb at 230 nm." title="Tip" data-placement="right" data-trigger="hover" data-container="body"></i>
+							<input class="form-control" type="text" number="true" name="od260_230" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sub_submit infor_group">
+				<div class="table-content">
+					<div class="row">
+						<div class="form-group col-xs-12">
+							<label title="" data-toggle="tooltip" title="xx">Citation</label>
+							<textarea name="citation" class="form-control" cols="30" rows="5"></textarea>
+						</div>
+						<div class="form-group col-xs-12">
+							<label title="" data-toggle="tooltip" title="xx">Note</label>
+							<textarea name="note" class="form-control" cols="30" rows="5"></textarea>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-xs-12 text-center">
+							<input type="text" name="is_submit" value="true" style="display: none;" />
+							<button class="btn btn-primary" id="to_save">&nbsp;Save&nbsp;</button>
+							<input type="submit" class="btn btn-primary" id="to_submit" style="margin-left: 18px;" value="Submit" />	
+						</div>
+					</div>			
+				</div>
+			</div>
+		</form>
+	</div>
+     <div id="photo_upload" style="display: none;"></div>
+	</div>
+	<!-- <div class="autocomplete_wrap">
+		<input type="text" class="autocomplete_input">
+		<div class="autocomplete_item_wrap">
+			<div class="autocomplete_item hover">123</div>
+			<div class="autocomplete_item">456</div>
+			<div class="autocomplete_item">789</div>
+		</div>
+	</div> -->
+	<!-- agreement -->
+	<div class="modal fade bs-example-modal-lg" id="agreement" tabindex="-1" aria-labelledby="agreement" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog modal-lg" role="dialog">
+    		<div class="modal-content">
+      			<div class="modal-header text-center">
+        			<h4 class="modal-title" id="myModalLabel">Submission Agreement</h4>
+        			<p class="text-muted agr_tip">Please read the following submission agreement. You must accept the terms of this agreement before continuing with the submission.</p>
+      			</div>
+      			<div class="modal-body agr_body">
+      				<p class="title">Terms and Conditions</p>
+      				<p class="sub_title">Overview</p>
+      				<br />
+        			<p>Thank you for visiting the database.</p>
+        			<br />
+        			<p>Please read these Terms and Conditions carefully before using this database. Users can obtain services from the database. You should be subject to the following terms and conditions ("Terms and Conditions") , privacy policy ("Privacy Policy ") and the relevant laws and regulations of the People 's Republic of China when you obtain and use the content and services provided on this database. Please click on this link for more details on the database "Privacy Policy ".</p>
+        			<br />
+        			<p>If you do not agree to the Terms and Conditions and / or the Privacy Policy, please do not access or otherwise use any of our services. By your continued use of the database, you acknowledge that you have read and understood the Terms and Conditions and the Privacy Policy and that you agree to be bound by all of its provisions. The database has the right to amend, add to, delete or revise the Terms and Conditions and the Privacy Policy at any time without prior notice. The Terms and Conditions and the Privacy Policy will be published in the database. You can access the relevant content at any time. Your continued use shall constitute your acceptance of all changes and they shall be binding upon you. You are advised to periodically review the Terms and Conditions and the Privacy Policy. Your access to the database and the services will be terminated upon your notice to the database that any change is unacceptable.</p>
+        			<br />
+        			<p class="sub_title">Copyright, Intellectual Property and Ownership</p>
+        			<br />
+        			<p>This database contains resources which incorporate material contributed or licensed by individuals, companies, or organizations that may be protected by China and worldwide copyright laws and treaty provisions. All persons make any representations or warranties that the content does not infringe the rights (including without limitation, the intellectual property rights) of any other person or entity. All rights, ownership and interests of the database including, but not limited to, the appearance and style of the database, data, information, text, code, graphics, images, layout, audio or video material, photo, design, logo, name, service mark, URL, code and the content provided by the third party are owned by us or our licensors. And they are subject to, but are not limited to, copyright, database, patent or other intellectual property and legal protection. Your use of the databases does not grant to you ownership of or any other rights with respect to any content, code, data or other materials that you may access on or through the databases.</p>
+        			<br />
+        			<p>Any unauthorized copying, redistribution, reproduction whether it is all or part of the reproduced, lease, sale, transfer, distribution, execution, display, licensing of the data and information in the database should be prohibited. The database reserves the right to defend intellectual property or proprietary rights in all content of the database, including but not limited to situations where the use of the content is not expressly permitted in the Terms and Conditions.</p>
+        			<br />
+        			<p>Without our prior permission, users can not create a link to our database or use our trademark, logo, or other proprietary graphics to link to the database or to design the material, or create a mirror of the database (including all and partial mirroring). </p>
+        			<br />
+        			<p class="title">Privacy Policy</p>
+        			<br />
+					<p>The database complies with requirements for privacy and security established by China National GeneBank(CNGB). This page outlines our Privacy Policy as they apply to our database as well as third party databases and applications of database (for example, github, wechart, etc.). Any of your personal information which database collects via this database is subject to the Privacy Policies, which is incorporated by reference into the Terms and Conditions.</p>
+					<br />
+					<p class="sub_title">Visit to the database</p>
+					<br />
+					<p>Your visit to the database is private and secure. When you visit the database, we are concerned and committed to protecting your privacy. We do not collect any personally identifiable information (PII) about you, unless you explicitly provide it to us. Database has implemented appropriate technical and organizational measures to ensure a level of security which we deem appropriate, taking into account the data we collect and the way we process it. However, we collect some data about your visit to our website to help us better understand public use of the database and to make it more useful to visitors. This page describes the information that is automatically collected and stored. The database never collects information for commercial marketing or any purpose not related to the database’ functions.</p>
+					<br />
+					<p>If you post or send offensive, inappropriate or objectionable content on or in any place on this database，or otherwise carry out any interference with our services, we may use your personal information to stop such behavior. Where we reasonably believe that you are or may be in breach of any applicable laws we may use your personal information to inform relevant third parties about the content and your behavior. </p>
+					<br />
+					<p class="sub_title">How do we protect your personal information?</p>
+					<br />
+					<p>We are committed to data security. In order to prevent unauthorized access, maintain the accuracy of your personal information and ensure that your personal information is used and disclosed only pursuant to this policy, </p>
+					<br />
+					<p>The database is committed to maintaining and ensuring database physical, electronic, contractual and administrative safeguards. And the database will make sure that the personal information collected in the database with different sensitivities has a different level of security.</p>
+      			</div>
+      			<div class="modal-footer agr_footer">
+      					<div class="radio_wraper clearfix">
+	      					<div class="radio">
+		        				<label>
+		        					<input type="radio" name="is_accepted" checked="checked" value="1" />I accept the agreement 
+		        				</label>
+	        				</div>	
+	        				<div class="radio" style="margin: 10px 0 0 40px;">
+	        					<label>
+	        						<input type="radio" name="is_accepted" value="0" />I do not accept the agreement
+	        					</label>
+	        				</div>
+      					</div>
+        				<hr />
+        				<div class="btn_wraper text-center">
+        					<input class="btn btn-primary" type="button" id="agr_submit" value="Submit" />
+        					<button class="btn btn-primary"  style="margin-left: 20px;" type="button" id="agr_back">&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</button>
+        				</div>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+	<!-- agreement -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+	<!-- <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script> -->
+	<script src="js/jquery.form.js"></script>
+	<script src="js/jquery.uploadfile.js"></script>
+	<script type="text/javascript">
+		//tooltip
+		$("[data-toggle='popover']").popover();
+
+		//agreement segment
+		$(function (){
+			var oAgreement=$("#agreement");
+			oAgreement.modal("hide");
+			oAgreement.on('shown.bs.modal', function (e){
+				var oArgSubmit=$("#agr_submit");
+				Judge_status();
+				$("#agr_back").click(function (eve){
+					window.location.href="http://127.0.0.1/10kp";//home page
+					return false;
+				});
+				$('input:radio').click(function (e){
+					Judge_status();
+					e.stopPropagation();
+				});
+
+				function Judge_status(){
+					//condition  whatever, just judge the "data-option" property of element which was checked 
+					if($("input[name='is_accepted']:checked").val() == 1){
+						oArgSubmit.removeAttr("disabled");
+					}
+					else{
+						oArgSubmit.attr("disabled", "disabled");
+					}
+				}
+
+				$("#agr_submit").click(function (){
+					$.ajax({
+						cache: false,
+						url: 'new_submission_agreement.php',
+						type: 'post',
+						data: {"is_accepted": $("input[name='is_accepted']:checked").val()},
+						dataType: "json",
+						success: function (response){
+							if(response.data.state == 1){
+								window.location.reload();
+							}	
+							else{
+								alert(response.data.failed_message);
+								window.history.back();
+							}		
+						},
+						error: function (err){
+							console.log(err);
+						}
+					});
+				});
+			});
+
+		});
+		
+		
+		//validate
+		//additional validate rule
+		jQuery.validator.addMethod("isFloat", function(value, element) {   
+    		var tel = /^\d+(\.\d{2})$/;
+    		return this.optional(element) || (tel.test(value));
+		}, "Please accurate to 0.01");
+
+		var sample_submit_form=$("#sample_submit_form");
+		$("#to_save").click(function (){
+			$("input[name='is_submit']").val("false");
+			document.sample_submit_form.action="http://www.baidu.com";
+			document.sample_submit_form.submit();
+		});
+		$("#to_submit").click(function (){
+			$("input[name='is_submit']").val("true");
+			document.sample_submit_form.action="http://www.163.com";
+			sample_submit_form.validate({
+				rules:{
+					concentration: "isFloat",
+					total_quantity: "isFloat",
+					od260_280: "isFloat",
+					od260_230: "isFloat",
+				}
+			});
+		});
+
+		//auto complete
+		$.fn.extend({
+			autocomplete: function (){
+				
+				$(this).on('click', function (e){
+					if($('.autocomplete_wrap').length != 0){
+						$('.autocomplete_wrap').find('*').off();
+						$('.autocomplete_wrap').remove();
+					}
+					var _this=this;
+					var original_element=e.target;
+					var timer1=null,timer2=null;
+					initial(_this, function (_this, autocompleteItemWrap, autocompleteInput){
+						autocompleteInput.on('keydown', function (){
+							autocompleteItemWrap.off().find('*').off().end().html('');
+							var input_this=this;
+							clearTimeout(timer1);
+							timer1=setTimeout(function (){
+								$.get("new_submission_searching.php", {'q': $(input_this).val(), 'level': $(original_element).attr('name')},
+									function (data){
+										var final_data=data.data.suggestions;
+										var html='';
+										$.each(data.data.suggestions, function (i, item){
+											html=html+'<div class="autocomplete_item" data-id="'+item.id+'">'+item.value+'</div>';	
+										});
+										autocompleteItemWrap.html(html);
+
+										clearTimeout(timer2);
+										timer2=setTimeout(function (){
+											var autocompleteItem=$(".autocomplete_item",autocompleteItemWrap);
+
+											autocompleteItem.off();
+											autocompleteItem.on('mouseenter',function (e){
+												$(this).addClass('hover').siblings().removeClass('hover');
+												e.stopPropagation();
+											}).end().click(function (e){
+													
+													var content=$.trim($(e.target).text());
+													var dataId=$(e.target).attr("data-id");
+													$(original_element).html("<option style='display: none;' selected>"+content+"</option>");
+													query_ancestor(dataId,original_element);
+													$(".autocomplete_wrap").remove();
+													e.stopPropagation();
+											});
+
+										},10);
+									},'json');
+							},10);
+							
+						});
+
+						$(document).click(function (e){
+								var currentTarget=$(e.target);
+								if(currentTarget.closest(".autocomplete_wrap").length == 0){
+									$(".autocomplete_wrap").remove();
+								}
+								e.stopPropagation();
+						});
+						
+					});
+
+					return false;
+				});
+
+				function initial(_this, callBack){
+					var initialHtml=$('<div class="autocomplete_wrap"><input type="text" class="autocomplete_input" placeholder= "please typing"><div class="autocomplete_item_wrap"></div></div>');
+					$('body').append(initialHtml);
+					var width=$(_this).outerWidth()
+					var height=$(_this).outerHeight()
+					var left=$(_this).offset().left;
+					var top=$(_this).offset().top;
+					var autocompleteWrap=$(".autocomplete_wrap");
+					var autocompleteItemWrap=$(".autocomplete_item_wrap");
+					var autocompleteInput=$(".autocomplete_input");
+					
+					autocompleteWrap.css({
+						width: width,
+						left: left,
+						top: top+height+3
+					});
+					autocompleteInput.focus();
+					callBack(_this, autocompleteItemWrap, autocompleteInput);
+				}
+
+				function query_ancestor(dataId, original_element){
+					var level=$(original_element).attr("name");	
+					var oSelectSpecies=$(".taxonomy_query[name='species']");
+					var oSelectGenus=$(".taxonomy_query[name='genus']");
+					var oSelectFamily=$(".taxonomy_query[name='family']");
+					var oSelectClade=$(".taxonomy_query[name='clade']");				
+					$.get('new_submission_complete_super.php', {'id': dataId, 'level': level},
+						function (data){
+							data=data.data;
+							console.log(data);
+							if(data.subdata.id==dataId && data.subdata.level==level){
+								$.each(data.superdata, function (i, item){
+									switch (item.level){
+										case 'genus':
+											oSelectGenus.html("<option selected style='display: none;'>"+item.value+"</option>");
+										break;
+										case 'family':
+											oSelectFamily.html("<option selected style='display: none;'>"+item.value+"</option>");
+										break;
+										case 'clade':
+											oSelectClade.html("<option selected style='display: none;'>"+item.value+"</option>");
+										break;
+										default:
+											console.log("level returning incorrect");
+									}
+								});
+								sample_submit_form.valid();//在插入值之后需要手动调用valid一次。因为它不会自动验证
+								switch (level){
+									case 'genus':
+										oSelectSpecies.html('');
+										break;
+									case 'family':
+										oSelectSpecies.html('');
+										oSelectGenus.html('');
+										break;
+									case 'clade':
+										oSelectSpecies.html('');
+										oSelectGenus.html('');
+										oSelectFamily.html('');
+										break;
+									default:
+										return;
+								}	
+
+
+							}							
+
+						},'json');
+
+				}
+			}
+
+		});
+		$(".taxonomy_query").autocomplete();
+		//photo upload
+		var oPhotoContainer=$("#photo_container");
+		var oSamplePhoto=$("#sample_photo");
+		$("#photo_upload_btn").click(function (){
+			$("[id^='ajax-upload-id']").click();			
+			return false;
+		});
+		//一个一个的上传，onsucess事件也是每成功一次，返回服务器单个文件数据
+		//afterUploadAll 事件所有文件上传成功之后
+		$("#photo_upload").uploadFile({
+			url:"new_submission_photoupload.php",
+			multiple:true,
+			dragDrop:false,
+			fileName:"photograph",
+			acceptFiles:"image/*",
+			allowedTypes:"jpg,jpeg,png",		
+			returnType: "json",
+			showDelete: true,
+			showFileSize: false,
+			statusBarWidth:200,
+			showPreview:true,
+ 			previewHeight: "110px",
+			previewWidth: "200px",
+			onLoad: function (obj, pd){
+				//To the right position
+				if (oPhotoContainer.find("*").length == 0){
+					$(".ajax-file-upload-container").appendTo(oPhotoContainer);
+				}
+				//loads the previousily uploaded files
+				$.ajax({
+					cache: false,
+					url: "new_submission_load_loadedimages.php",
+					type: "get",
+					data: {"op": "getloadedimages"},
+					dataType: "json",
+					success: function (response){
+						var data=response.data;
+						$.each(data, function (i, value){
+							//200b  0.2kb
+							var pd=obj.createProgress(value["name"],value["url"],value["size"]);
+							custom(pd);
+							//为删除时准备图片id数据数据
+							$(pd.del).attr("data-photoId", value["photo_id"]);
+							//input element substitution for submitting
+							oSamplePhoto.val(oSamplePhoto.val()+value["photo_id"]+',');
+							
+						});
+					},
+					error: function (err){
+						console.log(err);
+					}
+				});
+			},
+			onSuccess: function (files,data,xhr,pd){
+				$(pd.del).attr("data-photoId", data.data.photo_id);//为删除时准备图片id数据数据
+				custom(pd);
+				oSamplePhoto.val(oSamplePhoto.val()+data.data.photo_id+',');
+				
+			},
+			deleteCallback:function (data, pd){
+
+				var photoId=$.trim($(pd.del).attr("data-photoId"));
+				$.get("file_delete.php",{"id": photoId},function (innerdata){
+					if(innerdata.data.state == 1){
+						//remove the reponse id of photo
+						var ids=oSamplePhoto.val();
+						var ids_arr=ids.split(",");
+						ids_arr.pop();
+						var ids_remove=[];
+						//uniq id
+						$.each(ids_arr, function (i, val){
+							if (val != photoId) {
+								ids_remove.push(val);
+							};
+						});
+						if(ids_remove.length != 0){
+							oSamplePhoto.val(ids_remove.join(",")+',');
+						}
+						else{
+							oSamplePhoto.val('');
+						}
+						
+						var name=data.data ? data.data.name : data[0];
+						alert(name+" has been deleted");
+					}
+				}, 'json');
+			},
+			onError: function (files,status,errMsg,pd){
+				custom(pd);
+			}
+		});
+
+		function custom(pd){
+			$(pd.statusbar).addClass("custom_statusbar");
+			$(pd.filename).addClass("custom_filename");
+			$(pd.progressDiv).addClass("custom_progressdiv");
+			$(pd.del).addClass("custom_del");
+			$(pd.preview).addClass("custom_preview");
+		}
+	</script>
+</body>
+</html>

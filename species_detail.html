@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>species detail</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/jumpto.css" type='text/css' />
+	<style>
+	body,p,h1,h2,h3,h4,h5,h6,dl,dd,form,select{ margin: 0;}
+	input,select,textarea{outline: none;}
+	textarea{ margin:0;padding:0; resize:none; overflow:auto;} 
+	ul,ol,li,input{margin: 0; padding: 0; list-style: none;}
+	a{text-decoration: none;}
+	img{border: none;}
+	table{border-collapse: collapse;}
+	.sub_breadcrumb{
+		height: 94px;
+	}
+	.sub_breadcrumb li{
+		float: left;
+		line-height: 94px;
+	}
+	.sub_breadcrumb li a{
+		color: #333;
+	}
+	.sub_breadcrumb li:nth-of-type(2),.sub_breadcrumb li:nth-of-type(4){
+		padding: 0 10px;
+	}
+	.dl-horizontal dt{
+		width: auto;
+	}
+	.dl-horizontal dd{
+		float: left;
+		margin-left: 2px;
+	}
+   	.img_wraper{
+   		position: absolute;
+   		right: 0;
+   		top: 50px;
+   	}
+   	.img_wraper .img_btn{
+   		width: 18px;
+   		height: 18px;
+   		line-height: 18px;
+   		padding: 0;
+   		font-size: 12px; 
+   		text-align: center;
+   		background-color: #e6e6e6; 
+   		color: #fff;
+   		border-radius: 50%;
+   		border: none;
+   	}
+   	hr{
+   		margin: 16px 0;
+   	}
+   	.page_container .dl-horizontal,.page_container p{
+   		color: #7f7f7f;
+   	}
+   	.page_container .dl-horizontal dt{
+   		text-align: left;
+   	}
+	/*jump to*/
+   	.page_container{
+		position: relative;
+		margin-left: 222px;
+   	}
+   	.jumpto-subnav{
+   		left: -208px;
+   	}
+   	.jumpto-block{
+   		margin-top: 30px;
+   	}
+	</style>
+</head>
+<body>
+	<div class="container" id="detail">
+		<ul class="sub_breadcrumb">
+			<li><a href="">Home</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li><a href="">Species</a></li>
+			<li><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+			<li>SAM00001</li>
+		</ul>
+		<div class="row">
+			<div class="page_container col-xs-9">
+        		<div class="jumpto-block" style="position: relative; margin-top: 0px;">
+            		<h4>Identifiers</h4>
+            		<hr />
+            		<dl class="dl-horizontal clearfix">
+  						<dt>Sample ID:</dt>
+ 	 					<dd>SAM000001</dd>
+ 	 					<dt>Version:</dt>
+ 	 					<dd>v1</dd>
+ 	 					<dt>Provider:</dt>
+ 	 					<dd>Shifeng</dd>
+ 	 					<dt>Affiliation/institution:</dt>
+ 	 					<dd>BGI</dd>
+					</dl>  
+					<div class="img_wraper">
+						<button type="button" id="img_left" class="img_btn">
+							<i class="glyphicon glyphicon-chevron-left"></i>
+						</button>
+						<img src="images/1.jpg" id="sample_photograph" class="-img-responsive" width="136" height="82" alt="sample photograph">
+						<button type="button" id="img_right" class="img_btn">
+							<i class="glyphicon glyphicon-chevron-right"></i>
+						</button>
+					</div>       		
+        		</div>
+	        	<div class="jumpto-block">
+	          		<h4>Taxonomy</h4>
+	          		<hr />
+	          		<dl class="dl-horizontal clearfix">
+  						<dt>Clade:</dt>
+ 	 					<dd>Trichoptera</dd>
+ 	 					<dt>Family:</dt>
+ 	 					<dd>Limnephilus</dd>
+ 	 					<dt>Genus:</dt>
+ 	 					<dd>Limnephilus ob:soletus</dd>
+ 	 					<dt>Species:</dt>
+ 	 					<dd>Oryza sativa</dd>
+					</dl>	          		
+	        	</div>
+	        	<div class="jumpto-block">
+	          		<h4>Sample information</h4>
+	          		<hr />
+	          		<dl class="dl-horizontal clearfix">
+  						<dt>Sample name:</dt>
+ 	 					<dd>Bn_LEAF</dd>
+ 	 					<dt>Sample type:</dt>
+ 	 					<dd>DNA</dd>
+ 	 					<dt>Tissue type:</dt>
+ 	 					<dd>Leaf</dd>
+ 	 					<dt>Extractor:</dt>
+ 	 					<dd>BGI</dd>
+					</dl>
+	        	</div>
+	        	<div class="jumpto-block">
+	          		<h4>Sample quality</h4>
+	          		<hr />
+	          		<dl class="dl-horizontal clearfix">
+  						<dt>Concentration (ng/μL):</dt>
+ 	 					<dd>1365.9</dd>
+ 	 					<dt>Volume (μL):</dt>
+ 	 					<dd>48</dd>
+ 	 					<dt>Total Quantity (μg):</dt>
+ 	 					<dd>65,56</dd>
+ 	 					<dt>OD260/280:</dt>
+ 	 					<dd>1.9</dd>
+ 	 					<dt>OD260/230:</dt>
+ 	 					<dd>2.01</dd>
+					</dl>
+	        	</div>
+	        	<div class="jumpto-block">
+	          		<h4>Citation</h4>
+	          		<hr />
+	          		<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+	          		<br>
+	          		<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+	          		<br>
+	          		<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+	          		<br>
+	          		<p>Wickett N J, Mirarab S, Nguyen N, et al. Phylotranscriptomic analysis of the origin and early diversification of land plants[J]. Proc Natl Acad Sci U S A, 2014, 111(45):E4859.</p>
+	        	</div>
+	        	<div class="jumpto-block">
+	          		<h4>Note</h4>
+	          		<hr />
+	          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	          		<br>
+	          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	          		<br>
+	        	</div>
+			</div>
+		</div>
+		<div class="row" style="height: 500px;"></div>
+	</div>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jumpto.js"></script>
+	<script type="text/javascript">
+		//Jump To 
+		$(function (){
+			$(".page_container").jumpto({
+	     		firstLevel: "> h4",
+	     		offset: 80,
+	    	});
+		});
+		
+		//Carousel
+		var oLeft=$("#img_left"), oRight=$("#img_right"),
+		oSamplePhotograph=$("#sample_photograph");
+		//模拟数据
+		var images_url=[
+			{
+				'photo_id': 1,
+				'photo_name': 'xx.jpg',
+				'photo_url': 'images/1.jpg'
+			},
+			{
+				'photo_id': 1,
+				'photo_name': 'xx.jpg',
+				'photo_url': 'images/2.jpg'
+			},
+			{
+				'photo_id': 1,
+				'photo_name': 'xx.jpg',
+				'photo_url': 'images/3.jpg'
+			},
+		];
+		var i=0;
+		oLeft.click(function (){
+			i++;
+			i = i<images_url.length ? i : 0; 
+			oSamplePhotograph.attr({
+				"src": images_url[i].photo_url,
+				"alt": images_url[i].photo_name,
+			});
+		});
+		oRight.click(function (){
+			i--;
+			i = i >= 0 ? i : images_url.length-1; 
+			oSamplePhotograph.attr({
+				"src": images_url[i].photo_url,
+				"alt": images_url[i].photo_name,
+			});
+		});
+	</script>
+</body>
+</html>

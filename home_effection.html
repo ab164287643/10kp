@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<style>
+	@charset "utf-8";
+	body,p,h1,h2,h3,h4,h5,h6,dl,dd,form,select{ margin: 0;}
+	input,select,textarea{outline: none;}
+	textarea{ margin:0;padding:0; resize:none; overflow:auto;} 
+	ul,ol,li,input{margin: 0; padding: 0; list-style: none;}
+	a{text-decoration: none;}
+	img{border: none;}
+	table{border-collapse: collapse;}
+
+	.recent_post{
+		width: 250px;
+		height: 250px;
+		margin: 10px;
+		overflow: hidden;
+		float: left;
+		position: relative;
+	}
+	.rp_images img{
+		-webkit-transition: all 0.2s linear;
+		transition: all  0.3s linear;
+	}
+	.recent_post:hover .rp_images img{
+		 -webkit-transform: scale(1.5,1.5);
+		 transform: scale(1.5,1.5);
+	}
+	.rp_content{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0; top: 0;
+		padding: 15px;
+		background-color: rgba(51, 73, 94, 0.8);
+    	color: #FFFFFF;
+    	opacity: 0;
+    	-webkit-transition: all 0.2s linear;
+		transition: all  0.2s linear;
+	}
+	.rp_content:hover{
+		opacity: 1;
+	}
+	.rp_content:hover .rp_title{
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+	}
+	.rp_content:hover .rp_content_info{
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+	}
+	.rp_content .rp_title{
+		line-height: 1.2;
+		height: 85px;
+		margin-bottom: 10px;
+		overflow: hidden;
+		-webkit-transform: translateY(-80px);
+		-transform: translateY(-80px);
+		-webkit-transition: all 0.2s linear;
+		transition: all  0.2s linear;
+
+	}
+	.rp_content .rp_title a{
+		font-weight: 700;
+		color: #bad532;
+		text-decoration: none;
+		-webkit-transition: all 0.2s ease-in-out;
+		transition: all  0.3s 0.1s ease-out;
+	}
+	.rp_content .rp_title a:visited{
+		color: #bad532;
+	}
+	.rp_content .rp_title a:hover{
+		color: #f5f5f7;
+	}
+	.rp_content .rp_content_info{
+		-webkit-transform: translateY(100px);
+		-transform: translateY(100px);
+		-webkit-transition: all 0.2s linear;
+		transition: all  0.2s linear;
+	}
+	.rp_content .rp_content_info p{
+		color: #f5f5f7;
+		height: 80px;
+		margin-bottom: 10px;
+		overflow: hidden;
+	}
+	.rp_content .rp_content_info button{
+		background-color: #34495E;
+		border-color: #34495E;
+		-webkit-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+	}
+	.rp_content .rp_content_info button a{
+		color: #bad532;
+		text-decoration: none;
+		-webkit-transition: all 0.4s ease-in-out;
+		transition: all 0.3s 0.1s ease-in-out;
+	}
+	.rp_content .rp_content_info button:hover{
+		background-color: #bad532;;
+		border-color: #bad532;
+	}
+	.rp_content .rp_content_info button:hover a{
+		color: #fafcfc;
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 ">
+				<div class="recent_post">
+					<div class="rp_images">
+						<img src="images/morninga-seedlingsR-250x250.jpg" width="250" height="250" alt="posts thumb" />
+					</div>
+					<div class="rp_content">
+						<h3 class="rp_title"><a href="#">Promoting neglected and underutilized crop species Promoting neglected and underutilized crop species</a></h3>
+						<div class="rp_content_info">
+							<p>“To sequence everything in the world—that is the reason we are here.” With those words last week, China’s genome pioneer To sequence everything in the world—that is the reason we are here.” With those words last week, China’s genome pioneer</p>
+							<button class="btn btn-default" type="submit"><a href="">Read more »</a></button>
+						</div>
+					</div>
+				</div>
+				<div class="recent_post">
+					<div class="rp_images">
+						<img src="images/morninga-seedlingsR-250x250.jpg" width="250" height="250" alt="posts thumb" />
+					</div>
+					<div class="rp_content">
+						<h3 class="rp_title"><a href="#">Promoting neglected and underutilized crop species</a></h3>
+						<div class="rp_content_info">
+							<p>“To sequence everything in the world—that is the reason we are here.” With those words last week, China’s genome pioneer</p>
+							<button class="btn btn-default" type="submit"><a href="">Read more »</a></button>
+						</div>
+					</div>
+				</div>
+				<div class="recent_post">
+					<div class="rp_images">
+						<img src="images/morninga-seedlingsR-250x250.jpg" width="250" height="250" alt="posts thumb" />
+					</div>
+					<div class="rp_content">
+						<h3 class="rp_title"><a href="#">Promoting neglected and underutilized crop species</a></h3>
+						<div class="rp_content_info">
+							<p>“To sequence everything in the world—that is the reason we are here.” With those words last week, China’s genome pioneer</p>
+							<button class="btn btn-default" type="submit"><a href="">Read more »</a></button>
+						</div>
+					</div>
+				</div>
+				<div class="recent_post">
+					<div class="rp_images">
+						<img src="images/morninga-seedlingsR-250x250.jpg" width="250" height="250" alt="posts thumb" />
+					</div>
+					<div class="rp_content">
+						<h3 class="rp_title"><a href="#">Promoting neglected and underutilized crop species</a></h3>
+						<div class="rp_content_info">
+							<p>“To sequence everything in the world—that is the reason we are here.” With those words last week, China’s genome pioneer</p>
+							<button class="btn btn-default" type="submit"><a href="">Read more »</a></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(function (){
+		handle_overflow($(".rp_title a"), 38);
+		handle_overflow($(".rp_content_info p"), 120);
+
+		function handle_overflow (ele, length){
+			if (ele.text().length > length) {
+				ele.text(ele.text().substr(0, length)+"...");
+			};
+		}
+	});
+	</script>
+</body>
+</html>
